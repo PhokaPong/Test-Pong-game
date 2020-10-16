@@ -8,7 +8,7 @@ float padx;
 
 GamePong Pong;
 PongBall A;
- PaddleBar B;
+ //PaddleBar B;
  PaddleBar C;
  void setup(){
   fill(255);
@@ -22,7 +22,7 @@ PongBall A;
 
   A = new PongBall(xpos,height/2,50);
   C = new PaddleBar(width-50,pady,50,padh,1);
-  B = new PaddleBar(0,pady,50,padh,0);
+  //B = new PaddleBar(0,pady,50,padh,0);
   Pong = new GamePong();
   
  
@@ -46,7 +46,7 @@ class GamePong {
    A.createBall();
    
    A.bounce();
-   B.createBar();
+   //B.createBar();
    C.createBar();
    winCheck();
    
@@ -131,12 +131,12 @@ class PongBall {
   
   void bounce() {
     if(xpos > 0 && xpos  < width){
-    if(xpos-(diameter/2) <= B.padx + (B.padw) 
+    /*if(xpos-(diameter/2) <= B.padx + (B.padw) 
       &&  ypos + (diameter/2) >= B.pady 
       && ypos- (diameter/2) <= B.pady + B.padh){
         speedBx = abs(speedBx);
         speedBy = abs(speedBx)*((B.pady+(B.padh/2)) - ypos)/150;
-      } 
+      }*/
     
     if(xpos+(diameter/2) >= C.padx
       &&  ypos + (diameter/2) >= C.pady 
@@ -192,11 +192,11 @@ class PaddleBar {
   void createBar(){
     rect(padx,pady,padw,padh) ;
     float targetY = mouseY-padh/2;
-    if(playNo == 0){
+    /*if(playNo == 0){
     if(mouseX <= 200){
       float dy = targetY - pady;
       pady += dy * 0.25;}
-  }
+  }*/
   if(playNo == 1){
     if(mouseX >= width - 200){
       float dy = targetY - pady;
