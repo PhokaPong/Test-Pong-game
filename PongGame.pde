@@ -53,7 +53,7 @@ class GamePong {
    textSize(30);
    text(playerS1,310,30);
    text(playerS2,380,30);
-   if (A.ballOut){
+   /*if (A.ballOut){
      if(A.playerside == 0){
        playerS2 ++;
      }
@@ -62,9 +62,9 @@ class GamePong {
        
      
      }
-       delay(1000);
+       //delay(1000);
       A = new PongBall(xpos,height/2,50);
-   }
+   }*/
  }
    void winCheck(){
        if(playerS1 == 7 || playerS2 == 7 ){
@@ -94,7 +94,7 @@ class PongBall {
   
   float xpos, ypos, diameter,speedBx,speedBy;
   int playerside;
-  boolean ballOut = false;
+  //boolean ballOut = false;
   
   PongBall(float x, float y , float di){
     xpos = x;
@@ -137,13 +137,20 @@ class PongBall {
         speedBx = abs(speedBx);
         speedBy = abs(speedBx)*((B.pady+(B.padh/2)) - ypos)/150;
       }*/
+      
     
     if(xpos+(diameter/2) >= C.padx
       &&  ypos + (diameter/2) >= C.pady 
       && ypos- (diameter/2) <= C.pady + C.padh){
         speedBx =0 - abs(speedBx);
         speedBy = abs(speedBx)*((C.pady+(C.padh/2)) - ypos)/150;
-      } 
+      }
+      if (xpos - diameter/2 <= 0){
+          speedBx = 0 -abs(speedBx);
+          speedBy = 0 -abs(speedBx)*(C.pady+(C.padh/2)) - ypos/150;
+      }
+      
+      
     
       if(ypos - diameter/2 <= 0){
           speedBy = 0 - abs(speedBy);  
@@ -162,7 +169,7 @@ class PongBall {
         else{
             playerside = 1;
         }
-        ballOut = true;
+        //ballOut = true;
        
             
           
